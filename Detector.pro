@@ -26,13 +26,13 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        widget.cpp
+    calculationcoef.cpp
 
 HEADERS += \
-        widget.h
+    calculationcoef.h
 
 FORMS += \
-        widget.ui
+    CalculationCoef.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
