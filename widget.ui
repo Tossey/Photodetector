@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>623</width>
-    <height>241</height>
+    <height>281</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>Спектральный коэффицент фотоголовки</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
@@ -19,7 +22,7 @@
      <x>400</x>
      <y>30</y>
      <width>201</width>
-     <height>111</height>
+     <height>131</height>
     </rect>
    </property>
   </widget>
@@ -28,124 +31,131 @@
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>361</width>
-     <height>121</height>
+     <width>352</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="title">
     <string>Фотометрическая головка</string>
    </property>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>201</width>
-      <height>39</height>
-     </rect>
-    </property>
-    <property name="plainText">
-     <string>Коэффициент преобразования ГФ
-по источнику типа &quot;А&quot;</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>80</y>
-      <width>81</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="locale">
-     <locale language="Russian" country="Russia"/>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhDigitsOnly</set>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>291</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="toolButton">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>40</y>
-      <width>26</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>...</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>80</y>
-      <width>47</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>нА/лк</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Файл спектральной чувствительности фотоголовки (.csv):</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+      <item>
+       <widget class="QToolButton" name="toolButton">
+        <property name="text">
+         <string>...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Коэффициент преобразования фотоголовки
+по источнику света типа &quot;А&quot;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>нА/лк</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>160</y>
-     <width>361</width>
-     <height>61</height>
+     <y>180</y>
+     <width>351</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="title">
     <string>Источник света</string>
    </property>
-   <widget class="QToolButton" name="toolButton_2">
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="layoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>30</y>
-      <width>26</width>
-      <height>20</height>
+      <x>10</x>
+      <y>50</y>
+      <width>328</width>
+      <height>24</height>
      </rect>
     </property>
-    <property name="text">
-     <string>...</string>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+     <item>
+      <widget class="QToolButton" name="toolButton_2">
+       <property name="text">
+        <string>...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>30</y>
-      <width>291</width>
-      <height>21</height>
+      <width>328</width>
+      <height>13</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Файл спектрального распределения ИС  (.csv):</string>
     </property>
    </widget>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>150</y>
+     <x>450</x>
+     <y>180</y>
      <width>101</width>
      <height>51</height>
     </rect>
@@ -154,11 +164,11 @@
     <string>Рассчитать</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>210</y>
+     <x>420</x>
+     <y>240</y>
      <width>168</width>
      <height>23</height>
     </rect>
