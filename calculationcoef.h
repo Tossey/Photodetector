@@ -15,6 +15,17 @@ public:
     explicit CalculationCoef(QWidget *parent = nullptr);
     ~CalculationCoef();
 
+private slots:
+    void openSpectrumSensitivity();
+    void openSpectrumIntesity();
+
+    void openHelp();
+
+    void calculate();
+
+signals:
+    void exit();
+
 private:
     Ui::CalculationCoef *ui;
 };
