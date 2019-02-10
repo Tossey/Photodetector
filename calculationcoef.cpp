@@ -2,6 +2,7 @@
 
 #include "calculationcoef.h"
 #include "ui_widget.h"
+#include "spectrum.h"
 
 CalculationCoef::CalculationCoef(QWidget *parent) :
     QWidget(parent),
@@ -30,6 +31,20 @@ void CalculationCoef::openSpectrumSensitivity()
     QString pathSpecSens = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                         "", tr("CSV (*.csv);;All files(*)"));
     ui->pathSpecSensEdit->setText(pathSpecSens);
+
+    QFile file(pathSpecSens);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::warning(this, "Невозможно открыть файл!", file.errorString());
+        return;
+    }
+
+    Spectrum sensitivity = readFromFile(&file);
+    QString out;
+    QTextStream ts(&out);
+    for (auto it = sensitivity.begin(); it != sensitivity.end(); ++it) {
+        ts << it.key() << " " << it.value() << "\n";
+    }
+    ui->output->setText(out);
 }
 
 void CalculationCoef::openSpectrumIntesity()

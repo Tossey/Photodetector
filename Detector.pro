@@ -26,10 +26,12 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-    calculationcoef.cpp
+    calculationcoef.cpp \
+    spectrum.cpp
 
 HEADERS += \
-    calculationcoef.h
+    calculationcoef.h \
+    spectrum.h
 
 FORMS += \
     CalculationCoef.ui
