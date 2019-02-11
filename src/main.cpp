@@ -1,4 +1,4 @@
-#include "calculationcoef.h"
+#include "headers/calculationcoef.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

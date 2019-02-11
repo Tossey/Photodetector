@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data/eye_sens.csv</file>
+        <file>data/ref_src.csv</file>
+    </qresource>
+</RCC>

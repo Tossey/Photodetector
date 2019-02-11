@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "spectrum.h"
+
 namespace Ui {
 class CalculationCoef;
 }
@@ -28,6 +30,12 @@ signals:
 
 private:
     Ui::CalculationCoef *ui;
+
+    Spectrum sensitivtyHumanEye;
+    Spectrum sensitivityPhotoDetector;
+
+    Spectrum intensitySourceA;
+    Spectrum intensityLED;
 };
 
 #endif // WIDGET_H

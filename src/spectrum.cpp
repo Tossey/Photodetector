@@ -1,4 +1,4 @@
-#include "spectrum.h"
+#include "headers/spectrum.h"
 
 Spectrum readFromFile(QFile* file)
 {

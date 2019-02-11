@@ -25,13 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-    calculationcoef.cpp \
-    spectrum.cpp
+        src/main.cpp \
+    src/calculationcoef.cpp \
+    src/spectrum.cpp
 
 HEADERS += \
-    calculationcoef.h \
-    spectrum.h
+    headers/calculationcoef.h \
+    headers/spectrum.h
 
 FORMS += \
     CalculationCoef.ui
@@ -40,3 +40,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    data.qrc
