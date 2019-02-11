@@ -55,3 +55,23 @@ Spectrum multiply(const Spectrum& s1, const Spectrum& s2)
     }
     return  result;
 }
+
+double quadrature(const Spectrum& s)
+{
+    double result = 0.0;
+    int i = 0;
+    for (auto it = s.begin(); it != s.end(); ++it, ++i) {
+        if (i == 0 || i == s.size() - 1) {
+            result += it.value();
+        }
+        else if (i % 2 == 0) {
+            result += 2.0 * it.value();
+        }
+        else {
+            result += 4.0 * it.value();
+        }
+    }
+    double step = (s.lastKey() - s.firstKey()) / (s.size() - 1.0);
+    result *= step / 3.0;
+    return  result;
+}

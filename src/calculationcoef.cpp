@@ -81,16 +81,29 @@ void CalculationCoef::openSpectrumIntesity()
 
 void CalculationCoef::calculate()
 {
-    /*double val = ui->doubleSpinBox->value();
+    if (sensitivityPhotoDetector.empty()) {
+        QMessageBox::warning(this, "Ошибка!",
+                             "Не выбрана фотоголовка");
+        return;
+    }
+
+
+    Spectrum firstMul = multiply(intensitySourceA, sensitivityPhotoDetector);
+    double firstQuadr = quadrature(firstMul);
+
+    Spectrum secondMul = multiply(intensityLED, sensitivtyHumanEye);
+    double secondQuadr = quadrature(secondMul);
+
+    Spectrum thirdMul = multiply(intensitySourceA, sensitivtyHumanEye);
+    double thirdQuadr = quadrature(thirdMul);
+
+    Spectrum fourthMul = multiply(intensityLED, sensitivityPhotoDetector);
+    double fourthQuard = quadrature(fourthMul);
+
+    double val = ui->doubleSpinBox->value();
     QString out;
     QTextStream ts(&out);
     ts << val;
-    ui->output->setText(out);*/
-    QString out;
-    QTextStream ts(&out);
-    for (auto it = sensitivtyHumanEye.begin(); it != sensitivtyHumanEye.end(); ++it) {
-        ts << it.key() << ' ' << it.value() << '\n';
-    }
     ui->output->setText(out);
 }
 
