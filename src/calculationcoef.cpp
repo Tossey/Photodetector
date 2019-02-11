@@ -74,19 +74,24 @@ void CalculationCoef::openSpectrumIntesity()
         }
         ui->pathSpecIntensEdit->setText(pathSpecIntens);
 
-        sensitivityPhotoDetector = readFromFile(&fileIntesityLED);
+        intensityLED = readFromFile(&fileIntesityLED);
     }
 
 }
 
 void CalculationCoef::calculate()
 {
-    if (sensitivityPhotoDetector.empty()) {
+    if (sensitivityPhotoDetector.isEmpty()) {
         QMessageBox::warning(this, "Ошибка!",
                              "Не выбрана фотоголовка");
         return;
     }
 
+    if (intensityLED.isEmpty()) {
+        QMessageBox::warning(this, "Ошибка!",
+                             "Не выбран источник света");
+        return;
+    }
 
     Spectrum firstMul = multiply(intensitySourceA, sensitivityPhotoDetector);
     double firstQuadr = quadrature(firstMul);
@@ -100,10 +105,11 @@ void CalculationCoef::calculate()
     Spectrum fourthMul = multiply(intensityLED, sensitivityPhotoDetector);
     double fourthQuard = quadrature(fourthMul);
 
-    double val = ui->doubleSpinBox->value();
+    double f1 = (firstQuadr * secondQuadr) / (thirdQuadr * fourthQuard);
+    double conversionFactorSourceA = ui->doubleSpinBox->value();
     QString out;
     QTextStream ts(&out);
-    ts << val;
+    ts << conversionFactorSourceA / f1;
     ui->output->setText(out);
 }
 
