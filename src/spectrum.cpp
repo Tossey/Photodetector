@@ -20,3 +20,38 @@ Spectrum readFromFile(QFile* file)
     }
     return out;
 }
+
+const Spectrum* maxElements(const Spectrum& s1, const Spectrum& s2)
+{
+    auto size1 = s1.size();
+    auto size2 = s2.size();
+    if (size1 >= size2)
+        return &s1;
+    return &s2;
+}
+
+const Spectrum* minElements(const Spectrum& s1, const Spectrum& s2)
+{
+    auto size1 = s1.size();
+    auto size2 = s2.size();
+    if (size1 >= size2)
+        return &s2;
+    return &s1;
+}
+
+Spectrum multiply(const Spectrum& s1, const Spectrum& s2)
+{
+    Spectrum result;
+    const Spectrum* max = maxElements(s1, s2);
+    const Spectrum* min = minElements(s1, s2);
+
+    for (auto it = min->begin(); it != min->end(); ++it) {
+        LengthWave lengthByMin = it.key();
+        QuantitySpectrum quantityByMin = it.value();
+        if (min->contains(lengthByMin)) {
+            QuantitySpectrum quantityByMax = max->value(lengthByMin);
+            result.insert(lengthByMin, quantityByMax * quantityByMin);
+        }
+    }
+    return  result;
+}
